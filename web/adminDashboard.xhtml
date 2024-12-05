@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Admin Dashboard</title>
+        <link  type="text/css" rel="Stylesheet" href="resources/css/style.css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"></link>
+    </h:head>
+    <h:body>
+        <nav class="navbar">
+            <h3><img src="logo.png" class="logo"></img> Crop Shield</h3>
+            <ul class="nav-list">
+                <!-- Customer Details Section -->
+                <li class="dropdown">
+                    <a>Customer Details</a>
+                    <ul class="dropdown-menu">
+                        <li><a  onclick="showContent('newCustomers')">New Customers</a></li>
+                        <li><a  onclick="showContent('returningCustomers')">Returning Customers</a></li>
+                        <li><a  onclick="showContent('vipCustomers')">VIP Customers</a></li>
+                    </ul>
+                </li>
+
+                <!-- Order Management Section -->
+                <li class="dropdown">
+                    <a>Order Management</a>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="showContent('viewOrders')">View All Orders</a></li>
+                        <li><a onclick="showContent('pendingOrders')">Pending Orders</a></li>
+                        <li><a onclick="showContent('completedOrders')">Completed Orders</a></li>
+                    </ul>
+                </li>
+
+                <!-- Drone Management Section -->
+                <li class="dropdown">
+                    <a >Drone Management</a>
+                    <ul class="dropdown-menu">
+                        <li><a  onclick="showContent('addDrone')">Add New Drone</a></li>
+                        <li><a  onclick="showContent('updateDrone')">Update Drone</a></li>
+                        <li><a  onclick="showContent('removeDrone')">Remove Drone</a></li>
+                    </ul>
+                </li>
+
+                <!-- Drone Controls Section -->
+                <li class="dropdown">
+                    <a>Drone Controls</a>
+                    <ul class="dropdown-menu">
+                        <li><a  onclick="showContent('activeDrones')">Active Drones</a></li>
+                        <li><a  onclick="showContent('droneMaintenance')">Drone Maintenance</a></li>
+                        <li><a  onclick="showContent('droneLogs')">Drone Logs</a></li>
+                    </ul>
+                </li>
+
+                <!-- Admin Settings Section -->
+                <li class="dropdown">
+                    <a >Admin Settings</a>
+                    <ul class="dropdown-menu">
+                        <li><a  onclick="showContent('profileSettings')">Profile Settings</a></li>
+                        <li><a  onclick="showContent('userManagement')">User Management</a></li>
+                        <li><a  onclick="showContent('systemLogs')">System Logs</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </nav>
+
+        <div class="main-container">
+            <div class="main">
+                <div class="content" id="content">
+                    <h2>Welcome to the Admin Dashboard</h2>
+                    <p>Select an option from the navbar to view details.</p>
+                    <!-- Details for Each Option -->
+                    <!-- DRONE MANAGEMENT -->
+                    <div class="content-section" id="addDrone">
+                        <h3>Add New Drone</h3>
+                        <form class="addDroneForm">
+                            <div class="input-group">
+                                <label for="addId">Drone ID:</label>
+                                <input type="text" id="addId"><br></br></input>
+                            </div>
+                            <div class="input-group">
+                                <label for="addModel">Model:</label>
+                                <input type="text" id="addModel" ><br></br></input>
+                            </div>
+                            <div class="input-group">
+                                <label for="addStatus">Status:</label>
+                                <input type="text" id="addStatus"><br></br></input>
+                            </div>
+                            <center>
+                                <button class="select-button" type="button" onclick="#{adminBean.addDrone()}">Add Drone</button>
+                            </center>
+                        </form>
+                    </div>
+                    <div class="content-section" id="updateDrone">
+                        <h3>Update Drone</h3>
+                        <form class="updateDroneForm">
+                            <div class="input-group">
+                                <label for="updateId">Drone ID:</label>
+                                <input type="text" id="updateId"><br></br></input>
+                            </div>
+                            <div class="input-group">
+                                <label for="updateModel">New Model:</label>
+                                <input type="text" id="updateModel"><br></br></input>
+                            </div>
+                            <div class="input-group">
+                                <label for="updateStatus">New Status:</label>
+                                <input type="text" id="updateStatus"><br></br></input>
+                            </div>
+                            <center>
+                                <button class="select-button" type="button" onclick="#{adminBean.updateDrone()}">Update Drone</button>
+                            </center>
+                        </form>
+                    </div>
+                    <div class="content-section" id="removeDrone">
+                        <h3>Remove Drone</h3>
+                        <form class="removeDroneForm">
+                            <div class="input-group">
+                                <label for="removeId">Drone ID:</label>
+                                <input type="text" id="removeId"><br></br></input>
+                            </div>
+                            <center>
+                                <button class="select-button" type="button" onclick="#{adminBean.removeDrone()}">Remove Drone</button>
+                            </center>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h3>My Profile</h3>
+                <div class="image">
+                </div>
+                <p class="name">
+                    <strong>Alina Ashraf</strong>
+                </p>
+                <div class="info">
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> admin@cropshield.com</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Green Street, AgriCity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+                            function showContent(section) {
+                                let sections = document.querySelectorAll('.content-section');
+                                sections.forEach(sec => sec.style.display = 'none');
+                                document.getElementById(section).style.display = 'block';
+                            }
+
+                            document.addEventListener('DOMContentLoaded', () => {
+                                let sections = document.querySelectorAll('.content-section');
+                                sections.forEach(sec => sec.style.display = 'none');
+                            });
+
+
+        </script>
+    </h:body>
+</html>
