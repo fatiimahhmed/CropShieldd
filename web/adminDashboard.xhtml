@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
@@ -9,15 +9,15 @@
     </h:head>
     <h:body>
         <nav class="navbar">
-            <h3><img src="logo.png" class="logo"></img> Crop Shield</h3>
+            <h2><a href="#"><img src="logo.png" class="logo"></img></a> Crop Shield</h2>
             <ul class="nav-list">
                 <!-- Customer Details Section -->
                 <li class="dropdown">
                     <a>Customer Details</a>
-                    <ul class="dropdown-menu">
-                        <li><a  onclick="showContent('newCustomers')">New Customers</a></li>
+                    <ul class="dropdown-menu" style="min-width: 120px">
+                        <li><a  onclick="showContent('addNewCustomers')">New Customers</a></li>
+                        <li><a  onclick="showContent('customerSettings')">Customer Settings</a></li>
                         <li><a  onclick="showContent('returningCustomers')">Returning Customers</a></li>
-                        <li><a  onclick="showContent('vipCustomers')">VIP Customers</a></li>
                     </ul>
                 </li>
 
@@ -44,7 +44,7 @@
                 <!-- Drone Controls Section -->
                 <li class="dropdown">
                     <a>Drone Controls</a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="min-width: 120px">
                         <li><a  onclick="showContent('activeDrones')">Active Drones</a></li>
                         <li><a  onclick="showContent('droneMaintenance')">Drone Maintenance</a></li>
                         <li><a  onclick="showContent('droneLogs')">Drone Logs</a></li>
@@ -54,7 +54,7 @@
                 <!-- Admin Settings Section -->
                 <li class="dropdown">
                     <a >Admin Settings</a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="min-width: 120px">
                         <li><a  onclick="showContent('profileSettings')">Profile Settings</a></li>
                         <li><a  onclick="showContent('userManagement')">User Management</a></li>
                         <li><a  onclick="showContent('systemLogs')">System Logs</a></li>
@@ -71,22 +71,67 @@
             <div class="main">
                 <div class="content" id="content">
                     <h2>Welcome to the Admin Dashboard</h2>
-                    <p>Select an option from the navbar to view details.</p>
                     <!-- Details for Each Option -->
+                    <!-- CUSTOMER DETAILS -->
+
+                    <div class="content-section" id="addNewCustomers">
+                        <h3>Add New Customer</h3>
+                        <form class="addCustomerForm">
+                            <div class="input-group">
+                                <label for="customerName">Customer Name:</label>
+                                <input type="text" id="customerName" placeholder="Enter customer name"></input>
+                            </div>
+                            <div class="input-group">
+                                <label for="customerContact">Contact:</label>
+                                <input type="text" id="customerContact" placeholder="Enter contact number"></input>
+                            </div>
+                            <div class="input-group">
+                                <label for="customerEmail">Email:</label>
+                                <input type="email" id="customerEmail" placeholder="Enter email (optional)"></input>
+                            </div>
+                            <!--
+                             <div class="input-group" style="width: 40%;">
+                                 <label for="customerProvince">Province:</label>
+                                 <select id="customerProvince">
+                                     <option value="">Select Province</option>
+                                     <option value="Punjab">Punjab</option>
+                                     <option value="Sindh">Sindh</option>
+                                     <option value="Balochistan">Balochistan</option>
+                                     <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+                                 </select>
+                             </div>
+                            -->
+                            <div class="input-group">
+                                <label for="customerLocation">Location:</label>
+                                <input type="text" id="customerLocation" placeholder="Add location"></input>
+                            </div>
+                            <div class="input-group">
+                                <label for="customerLand">Land (acres):</label>
+                                <input type="number" id="customerLand" placeholder="Enter land size in acres"></input>
+                            </div>
+                            <center>
+                                <button class="select-button" type="button" onclick="#{adminBean.addCustomer()}">Add Customer</button>
+                            </center>
+
+
+                        </form>
+                    </div>
+
+
                     <!-- DRONE MANAGEMENT -->
                     <div class="content-section" id="addDrone">
                         <h3>Add New Drone</h3>
                         <form class="addDroneForm">
                             <div class="input-group">
-                                <label for="addId">Drone ID:</label>
+                                <label for="addId">Drone Name:</label>
                                 <input type="text" id="addId"><br></br></input>
                             </div>
                             <div class="input-group">
-                                <label for="addModel">Model:</label>
+                                <label for="addModel">Drone Model:</label>
                                 <input type="text" id="addModel" ><br></br></input>
                             </div>
                             <div class="input-group">
-                                <label for="addStatus">Status:</label>
+                                <label for="addStatus">Drone Status:</label>
                                 <input type="text" id="addStatus"><br></br></input>
                             </div>
                             <center>
@@ -98,7 +143,7 @@
                         <h3>Update Drone</h3>
                         <form class="updateDroneForm">
                             <div class="input-group">
-                                <label for="updateId">Drone ID:</label>
+                                <label for="updateId">Drone Name:</label>
                                 <input type="text" id="updateId"><br></br></input>
                             </div>
                             <div class="input-group">
@@ -118,7 +163,7 @@
                         <h3>Remove Drone</h3>
                         <form class="removeDroneForm">
                             <div class="input-group">
-                                <label for="removeId">Drone ID:</label>
+                                <label for="removeId">Drone Name:</label>
                                 <input type="text" id="removeId"><br></br></input>
                             </div>
                             <center>
@@ -126,9 +171,12 @@
                             </center>
                         </form>
                     </div>
-
-
                 </div>
+                <!--
+                <div class="bar">
+                    <p>@cropshield.com</p> 
+                </div>
+                -->
             </div>
 
             <div class="sidebar">
@@ -140,9 +188,9 @@
                 </p>
                 <div class="info">
                     <ul>
-                        <li><i class="fas fa-envelope"></i> admin@cropshield.com</li>
-                        <li><i class="fas fa-phone-alt"></i> +1 234 567 890</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Green Street, AgriCity</li>
+                        <li><i class="fas fa-envelope"></i><h:outputText value="admin@cropshield.com" />admin@cropshield.com</li>
+                        <li><i class="fas fa-phone-alt"></i><h:outputText value=" +1 234 567 890" /> +1 234 567 89</li>
+                        <li><i class="fas fa-map-marker-alt"></i><h:outputText value="123 Green Street, AgriCity" />123 Green Street, AgriCity</li>
                     </ul>
                 </div>
             </div>
@@ -160,6 +208,13 @@
                                 let sections = document.querySelectorAll('.content-section');
                                 sections.forEach(sec => sec.style.display = 'none');
                             });
+
+                            /*
+                             document.addEventListener('DOMContentLoaded', () => {
+                             let sections = document.querySelectorAll('.content-section');
+                             sections.forEach(sec => sec.style.display = 'none'); // Hide all sections on load
+                             });
+                             */
 
 
         </script>
