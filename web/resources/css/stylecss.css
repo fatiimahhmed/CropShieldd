@@ -1,0 +1,218 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Dec 7, 2024, 1:37:29 AM
+    Author     : dar
+*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.navbar {
+    background-color: #00BF63;
+    padding: 0 20px;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar h2 {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+}
+.logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-list > li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+.nav-list i{
+    font-size: 12px;
+    gap: 10px;
+}
+
+/* Dropdown Menu */
+.dropdown-checkbox {
+    display: none;
+}
+
+.dropdown-label {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.dropdown-label:hover{
+    color: #0c5531;
+    cursor: pointer;
+}
+
+.dropdown-label i{
+    padding-left: 7px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 155px;
+    background: white;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+    padding: 8px 15px;
+}
+
+.dropdown-menu li a {
+    color: black;
+    font-size: 14px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background: #07904e;
+    color: white;
+}
+
+
+.dropdown-checkbox:checked + .dropdown-label + .dropdown-menu {
+    display: block;
+}
+
+.logout-btn {
+    background:#06a257;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.logout-btn i{
+    color: white;
+}
+
+.logout-btn:hover {
+    box-shadow: 0 0 5px 2px #fff;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 79vh;
+}
+
+.right-content{
+    width: 75%;
+    background: white;
+    margin: 10px;
+}
+
+.content{
+    padding: 20px;
+    color: black;
+    background: white;
+    margin: 25px;
+    width: 100%;
+    max-width: 800px;
+    height: 60vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 25%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*left content, sidebar*/
+.sidebar h3 {
+    color: black;
+    font-size: 22px;
+    padding-left: 35px;
+}
+.sidebar .image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 2px;
+    margin-left: 30px;
+    margin-bottom: 70px;
+    background-color:rgb(51, 137, 236);
+}
+
+.sidebar .name{
+    font-size: 20px;
+    padding-left: 30px;
+    font-weight: 600;
+}
+.info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info li {
+    font-size: 16px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.info li i {
+    color: #00BF63;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 9vh;
+    background-color: #00BF63;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    font-size: 16px;
+}
