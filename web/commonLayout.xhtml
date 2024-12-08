@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>CropShield Admin Dashboard</title>
+        <link  type="text/css" rel="Stylesheet" href="resources/css/stylecss.css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"></link>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+                <ui:composition>
+                    <nav class="navbar">
+                        <h2><a href="#"><img src="logo.png" class="logo"></img></a> CropShield</h2>
+                        <ul class="nav-list">
+                            <!-- Customer Details Section -->
+                            <li class="dropdown">
+                                <input type="checkbox" id="dropdown-toggle-customer" class="dropdown-checkbox" />
+                                <label for="dropdown-toggle-customer" class="dropdown-label">
+                                    Customer Details <i class='bx bxs-down-arrow'></i>
+                                </label>
+                                <ul class="dropdown-menu">
+                                    <li><a href="newCustomers.xhtml">New Customers</a></li>
+                                    <li><a href="customerSettings.xhtml">Customer Settings</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Order Management Section -->
+                            <li class="dropdown">
+                                <input type="checkbox" id="dropdown-toggle-order" class="dropdown-checkbox"/>
+                                <label for="dropdown-toggle-order" class="dropdown-label">
+                                    Order Management <i class='bx bxs-down-arrow'></i>
+                                </label>
+                                <ul class="dropdown-menu">
+                                    <li><a href="ordersList.xhtml">View All Orders</a></li>
+                                    <li><a href="pendingOrders.xhtml">Pending Orders</a></li>
+                                    <li><a href="completedOrders.xhtml">Completed Orders</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Drone Management Section -->
+                            <li class="dropdown">
+                                <input type="checkbox" id="dropdown-toggle-drone" class="dropdown-checkbox"/>
+                                <label for="dropdown-toggle-drone" class="dropdown-label">
+                                    Drone Management <i class='bx bxs-down-arrow'></i>
+                                </label>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Add New Drone</a></li>
+                                    <li><a href="#">Update Drone</a></li>
+                                    <li><a href="#">Remove Drone</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Drone Controls Section -->
+                            <li class="dropdown">
+                                <input type="checkbox" id="dropdown-toggle-controls" class="dropdown-checkbox"/>
+                                <label for="dropdown-toggle-controls" class="dropdown-label">
+                                    Drone Controls <i class='bx bxs-down-arrow'></i>
+                                </label>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Active Drones</a></li>
+                                    <li><a href="#">Drone Maintenance</a></li>
+                                    <li><a href="#">Drone Logs</a></li>
+                                </ul>
+                            </li>
+
+
+                            <!-- Admin Settings Section -->
+                            <li class="dropdown">
+                                <input type="checkbox" id="dropdown-toggle-settings" class="dropdown-checkbox"/>
+                                <label for="dropdown-toggle-settings" class="dropdown-label">
+                                    Admin Settings <i class='bx bxs-down-arrow'></i>
+                                </label>
+                                <ul class="dropdown-menu">
+                                    <li><a href="profileSettings.xhtml">Profile Settings</a></li>
+                                    <li><a href="userManagement.xhtml">User Management</a></li>
+                                    <li><a href="systemLogs.xhtml">System Logs</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        
+                        <!-- 
+                        <h:commandButton 
+                            value="Logout" 
+                            styleClass="logout-btn" 
+                            action="#{yourBean.logout}">
+                            <f:facet name="label">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </f:facet>
+                        </h:commandButton>
+                        comment -->
+                        <button class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button> 
+                    </nav>
+                </ui:composition>
+            </ui:insert>
+        </div>
+        <div class="main-container">
+            <div id="left" class="sidebar">
+                <ui:insert name="left">
+                    <ui:composition >
+                        <div >
+                            <h3>My Profile</h3>
+                            <div class="image">
+                            </div>
+                            <p class="name">
+                                <h:outputText value=""/>Alina Ashraf
+                            </p>
+                            <div class="info">
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-envelope"></i>
+                                        <h:outputText value="admin@cropshield.com" />admin@cropshield.com
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-phone-alt"></i>
+                                        <h:outputText value="+1 234 567 890" />+1 234 567 890
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <h:outputText value="123 Green Street, AgriCity" />123 Green Street, AgriCity
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ui:composition>
+                </ui:insert>
+            </div>
+            <div id="right-content" class="right-content">
+                <ui:composition>
+                    <div class="content" id="content">
+                        <h2>Welcome to Admin Dashboard</h2>
+                        <!-- Include the file dynamically based on the 'page' parameter 
+                        <ui:include src="#{param.page != null ? param.page + '.xhtml' : 'welcome.xhtml'}" />
+                        -->
+                    </div>
+                </ui:composition>
+            </div>
+        </div>
+        <div id="bottom">
+            <ui:composition >
+                <div class="footer">
+                    <p>@cropshield.com</p>
+                </div>                
+            </ui:composition>
+        </div>
+
+    </h:body>
+</html>
